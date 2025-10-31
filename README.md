@@ -8,6 +8,10 @@ The application consists of two main windows:
 
 ![Application Screenshot](images/screenshot.png)
 
+## Disclaimer
+
+This application is developed as a software engineering project and is not intended for medical diagnosis or professional use. The color blindness simulations and visual effects are implemented based on publicly available information and algorithms, and do not constitute medical advice or a substitute for professional medical consultation. The developer does not possess medical expertise.
+
 ## Features
 
 -   Real-time screen capture and color filtering.
