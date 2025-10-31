@@ -6,6 +6,8 @@ The application consists of two main windows:
 1.  **Scope Window**: A draggable and resizable transparent window with a red border. This window defines the area of the screen to be captured.
 2.  **Preview Window**: Displays the captured screen area with the selected color filter applied in real-time.
 
+![Application Screenshot](images/screenshot.png)
+
 ## Features
 
 -   Real-time screen capture and color filtering.
