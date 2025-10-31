@@ -122,9 +122,14 @@ class ColorFilterApp:
         self.preview_window.geometry(PREVIEW_GEOMETRY)
         self.preview_window.attributes("-topmost", True)
         self.preview_window.protocol("WM_DELETE_WINDOW", self.on_preview_window_close)
+
+        # Grid 레이아웃 설정: 2행 1열, 아래쪽 행(이미지)이 공간을 모두 차지하도록 설정
+        self.preview_window.grid_rowconfigure(1, weight=1)
+        self.preview_window.grid_columnconfigure(0, weight=1)
         
         self.preview_label = tk.Label(self.preview_window)
-        self.preview_label.pack(fill=tk.BOTH, expand=True, side=tk.BOTTOM)
+        # preview_label을 1행 0열에 배치하고, 모든 방향으로 늘어나도록 설정
+        self.preview_label.grid(row=1, column=0, sticky="nsew")
 
     def load_filters(self):
         """사용 가능한 모든 색상 필터(행렬 및 LUT)를 로드합니다."""
@@ -148,8 +153,10 @@ class ColorFilterApp:
     def setup_controls(self):
         """미리보기 창에 필터 선택 메뉴와 버튼을 추가합니다."""
         self.control_frame = ttk.Frame(self.preview_window, padding=10)
-        self.control_frame.pack(fill=tk.X, side=tk.TOP)
+        # control_frame을 0행 0열에 배치하고, 좌우로 늘어나도록 설정
+        self.control_frame.grid(row=0, column=0, sticky="ew")
         
+        # control_frame 내부 위젯들은 pack을 그대로 사용
         ttk.Label(self.control_frame, text="Filter:").pack(side=tk.LEFT, padx=(0,5))
         filter_menu = ttk.OptionMenu(self.control_frame, self.current_filter_name, self.current_filter_name.get(), *self.filter_options.keys(), command=self.on_filter_change)
         filter_menu.pack(side=tk.LEFT, fill=tk.X, expand=True)
