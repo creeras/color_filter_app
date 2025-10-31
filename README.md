@@ -60,3 +60,7 @@ python app.py
     -   **3D Look-Up Tables (LUTs)**: For more complex color transformations like the magenta lens, a `.cube` file is used to map input colors to output colors.
 -   The application is built with `Tkinter` for the graphical user interface.
 -   It uses `ctypes` to interact with the Windows API for DPI scaling to ensure the UI is sharp on high-DPI displays.
+
+## Limitations
+
+-   **Reduced Gradation in Filtered Output**: The current color filtering process may result in a slight reduction in color gradation (계조) in the preview window compared to the original screen capture. An attempt to improve this was made, but it introduced significant performance delays, making it impractical for real-time application. This trade-off was accepted to maintain real-time responsiveness.
